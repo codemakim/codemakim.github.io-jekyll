@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "블로그 쉽지 않네요."
 date:   2018-08-24 12:24:01 +0900
 categories: jekyll update
 ---
