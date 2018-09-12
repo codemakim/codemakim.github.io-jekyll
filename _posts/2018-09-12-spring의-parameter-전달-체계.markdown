@@ -5,11 +5,14 @@ date:   2018-09-12 21:30:00 +0900
 categories: jekyll update
 ---
 <h3>@RequestParam</h3>
-리퀘스트 파람. ㅎㅎ
-```dsf
-asdfa
-dsfasdfadsf
-adsfasdfasdfadsfasdfasdf
+
+{% highlight %}
+
+public String join() {
+    return "";
+}
+
+{% endhighlight %}
 
 
 
