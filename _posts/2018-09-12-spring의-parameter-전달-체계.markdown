@@ -6,7 +6,7 @@ categories: jekyll update
 ---
 <h3>@RequestParam</h3>
 
-{% highlight %}
+{% highlight ruby %}
 
 public String join() {
     return "";
