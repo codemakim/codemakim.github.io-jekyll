@@ -4,7 +4,7 @@ title:  "Spring의 parameter 전달 체계"
 date:   2018-09-12 21:30:00 +0900
 categories: jekyll update
 ---
-<link rel="stylesheet" href="../lib/highlight/styles/default.css">
+<link rel="stylesheet" type="text/css" href="../lib/highlight/styles/default.css">
 <script src="../lib/highlight/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
