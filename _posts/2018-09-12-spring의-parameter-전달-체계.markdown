@@ -65,10 +65,6 @@ public String add(@ModelAttribute User user, BindingResult bindingResult) {...}
 
 ## @RequestBody
 HTTP 요청의 본문(body) 부분이 그대로 전달됨. XML, JSON 기반 메시지 쓸 땐 매우 유용
-```java
-public void header(@RequestHeader("Host") String host, 
-                    @RequestHeader("Keep-Alive") long keepAlive) {...}
-```
 
 ## @Valid
 JSR-303의 빈 검증기를 이용해서 객체를 검증하도록 지시하는 지시자
