@@ -11,6 +11,7 @@ categories: jekyll update
 <div class="container">
     <div class="jumbotron">
         <h1>스프링 프레임워크의 파라미터 전달</h1>
+        <p>출처 - 토비의 스프링 3.1</p>
     </div>
     <article>
         <h1>@PathVariable</h1>
