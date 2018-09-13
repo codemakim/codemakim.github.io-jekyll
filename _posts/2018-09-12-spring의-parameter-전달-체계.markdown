@@ -4,6 +4,7 @@ title:  "Spring의 parameter 전달 체계"
 date:   2018-09-12 21:30:00 +0900
 categories: jekyll update
 ---
+~~~
 <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.2-dist/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../lib/highlight/styles/default.css">
 
@@ -97,7 +98,7 @@ public String add(@ModelAttribute User user, BindingResult bindingResult) {...}<
 		<p>JSR-303의 빈 검증기를 이용해서 객체를 검증하도록 지시하는 지시자</p>
 	</article>
 </div>
-
+~~~
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
