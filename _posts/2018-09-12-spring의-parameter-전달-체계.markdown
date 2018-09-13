@@ -39,7 +39,8 @@ public String check(@CookieValue("auth") String auth) {...}
 ## @RequestHeader
 요청 헤더정보를 메서드 파라미터에 넣어주는 애노테이션
 ```java
-public void header(@RequestHeader("Host") String host, @RequestHeader("Keep-Alive") long keepAlive) {...}
+public void header(@RequestHeader("Host") String host, 
+                    @RequestHeader("Keep-Alive") long keepAlive) {...}
 ```
 
 ## Map, Model, ModelMap
