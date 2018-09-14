@@ -73,7 +73,7 @@ public void hello(ModelMap model) {
 
 ## @ModelAttribute
 요청 파라미터를 메서드 파라미터에서 1:1로 받으면 @RequestParam이고, 도메인 오브젝트나 DTO 프로퍼티에 요청 파라미터를 바인딩해서 한 번에 받으면 @ModelAttribute 라고 함.
-하나의 오브젝트에 클라이언트 요청정보를 담아서 한 번에 전달되기 때문에 커맨드 패턴에서 말하는 커맨드 오브젝트라고 부르기도 함.<br><br>
+하나의 오브젝트에 클라이언트 요청정보를 담아서 한 번에 전달되기 때문에 커맨드 패턴에서 말하는 커맨드 오브젝트라고 부르기도 함.<br>
 
 URL의 쿼리스트링으로 들어오는 GET방식 HTTP 요청 정보를 @ModelAttribute가 붙은 파라미터 타입 오브젝트에 모두 담아서 전달함. 페이지 내의 폼 데이터를 받는 경우에도 @ModelAttribute를 사용함.
 ```java
