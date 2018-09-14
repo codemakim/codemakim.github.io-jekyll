@@ -27,7 +27,7 @@ public String view(@RequestParam("id") int id,
 ```
 파라미터 이름을 지정하지 않고 Map<String, String> 타입으로 선언
 ```java
-public String add(@RequestParam Map&lt;String, String&gt; params) {...}
+public String add(@RequestParam Map<String, String> params) {...}
 ```
 
 ## @CookieValue
