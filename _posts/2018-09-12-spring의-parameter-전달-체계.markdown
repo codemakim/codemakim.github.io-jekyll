@@ -110,7 +110,7 @@ public String add(@ModelAttribute User user) {
         int형 파라미터라면, String형 Request를 int형으로 타입 변환 시도함. 성공하면 int형 parameter에 전달됨. 실패하면 400-Bad Request 응답함.
     * @ModelAttribute : @ModelAttribute 오브젝트에 요청 프로퍼티 값을 넣다 타입 에러 발생하면?
         타입 변환에 실패해도 작업이 곗곡 진행됨. 단지, 타입 변환 중 발생한 예외가 BindException 타입의 오브젝트에 답겨서 컨트롤러로 전달될 뿐임.
-        # 그럼 왜 바로 에러로 처리 하지 않음?
+        ## 그럼 왜 바로 에러로 처리 하지 않음?
           -> 그 이유는 @ModelAttribute는 Request parameter가 model object의 property type과 일치하는지를 포함한 
             다양한 방식의 검증 기능을 수행하기 때문. @ModelAttribute 입장에서 parameter 타입 불일치는 검증 작업의
             한 결과일 뿐, 예상치 못한 예외상황이 아님. 별 검증 과정 없이 값을 무조건 넣으려고 시도하는 
