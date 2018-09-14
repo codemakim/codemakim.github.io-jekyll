@@ -111,9 +111,10 @@ public String add(@ModelAttribute User user) {
     * @ModelAttribute : @ModelAttribute 오브젝트에 요청 프로퍼티 값을 넣다 타입 에러 발생하면?
         타입 변환에 실패해도 작업이 곗곡 진행됨. 단지, 타입 변환 중 발생한 예외가 BindException 타입의 오브젝트에 답겨서 컨트롤러로 전달될 뿐임.
         # 그럼 왜 바로 에러로 처리 하지 않음?
-          -> 그 이유는 @ModelAttribute는 Request parameter가 model object의 property type과 일치하는지를 포함한 다양한 방식의 검증 기능을 수행하기 때문.
-            @ModelAttribute 입장에서 parameter 타입 불일치는 검증 작업의 한 결과일 뿐, 예상치 못한 예외상황이 아님.        
-            별 검증 과정 없이 값을 무조건 넣으려고 시도하는 @RequestParam과 @ModelAttribute는 이런 차이가 있음.
+          -> 그 이유는 @ModelAttribute는 Request parameter가 model object의 property type과 일치하는지를 포함한 
+            다양한 방식의 검증 기능을 수행하기 때문. @ModelAttribute 입장에서 parameter 타입 불일치는 검증 작업의
+            한 결과일 뿐, 예상치 못한 예외상황이 아님. 별 검증 과정 없이 값을 무조건 넣으려고 시도하는 
+            @RequestParam과 @ModelAttribute는 이런 차이가 있음.
 
 버튼, 링크에 미리 할당된 정보가 아니라 사용자가 직접 입력하는 값은 다양한 오류가 있을 수 있어서 무조건 검증이 필요함.
 검증 작업은 타입 확인, 필수 여부, 길이 제한, 포맷, 값의 허용 범위 등 다양한 검증 기준이 있을 수 있음.
