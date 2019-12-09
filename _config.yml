@@ -1,40 +1,27 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+title: 취미로 키보드질을 하고이찌
+description: 코딩,영화,음악,게임에 대한 의식의 흐름대로 싸놓는 블로그
+author: 김정현
+logo: /hcz-jekyll-blog/static/img/avatar.png
+github: https://github.com/codemakim
+about: Freelance developer
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: 키보드로 공구리질
-email: codemakim@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  컴퓨터로 이것저것 만들어보고 기록하기 위해 만든 블로그입니다. 웹앱, 모바일 앱을 만들어봤으며, 게임도 만들어보고 싶네요.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-# twitter_username: jekyllrb
-github_username: codemakim
+baseurl: ""
+url: ""
 
-# Build settings
+allowsearch: true
+
+# disqus_shortname: aboutashu
+# google_analytics: UA-72862926-1
+
+# share:
+# twitter_username: \#
+# fb_appid: 000000000000
+
+enableTags: true
+tagarray: []
+
+paginate: 20
+per_page: 20
+paginate_path: "/page:num/"
 markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-feed
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+gems: [jekyll-paginate, jekyll-gist]
