@@ -17,7 +17,7 @@ title: 키보드로 공구리질
 email: codemakim@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   컴퓨터로 이것저것 만들어보고 기록하기 위해 만든 블로그입니다. 웹앱, 모바일 앱을 만들어봤으며, 게임도 만들어보고 싶네요.
-baseurl: "https://codemakim.github.io/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 github_username: codemakim
