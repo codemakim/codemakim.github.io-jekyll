@@ -5,8 +5,6 @@ date: 2018-09-12 17:51:01 +0900
 categories: jekyll update
 ---
 
-# 스프링 프레임워크의 컨트롤러 파라미터
-
 출처 - 토비의 스프링 3.1
 
 본 글은 작년 말 쯤 공부를 하던 중 작성한 요약본입니다. codemakim@github.io에 올렸었으나, 티스토리로 블로그를 옮기면서 반말 찍찍 말투를 좀 더 공손하게 수정하여 재업합니다.
@@ -144,7 +142,7 @@ public String add(@ModelAttribute User user) {
 `@ModelAttribute` : `@ModelAttribute` 오브젝트에 요청 프로퍼티 값을 넣다 타입 에러 발생하면?  
 \-> 타입 변환에 실패해도 작업은 계속 진행됩니다. 단, 타입 변환 중 발생한 예외가 BindException 타입의 오브젝트에 담겨서 컨트롤러로 전달될 뿐입니다.
 
-그럼 왜 바로 에러로 처리 하지 않습니까?
+### 그럼 왜 바로 에러로 처리 하지 않습니까?
 
 \-> 그 이유는`@ModelAttribute`는 Request parameter가 model object의 property type과 일치하는지를 포함한 다양한 방식의 검증 기능을 수행하기 때문입니다.`@ModelAttribute`입장에서 parameter 타입 불일치는 검증 작업의 한 결과일 뿐, 예상치 못한 예외상황이 아닙니다. 별 검증 과정 없이 값을 무조건 넣으려고 시도하는`@RequestParam`과`@ModelAttribute`는 이런 차이가 있습니다.
 
@@ -156,7 +154,7 @@ public String add(@ModelAttribute User user) {
 따라서, 사용자 입력 값에 오류가 있으면 이 처리를 컨트롤러에 맡겨야 합니다.  
 컨트롤러는 적절한 에러 페이지를 반환하거나, 친절하게 에러메시지를 보여주면서 사용자가 다시 폼을 수정할 기회를 줘야합니다.
 
-그래서 `@ModelAttribute`를 쓸 땐 Errors 또는 BindingResult 타입 파라미터를 같이 써야합니다.
+### 그래서 @ModelAttribute를 쓸 땐 Errors 또는 BindingResult 타입 파라미터를 같이 써야합니다.
 
 Errors나 BindingResult 파라미터를 함께 쓰지 않으면 Spring은 Request parameter 타입이나 값에 문제가 없도록 애플리케이션이 보장 빵빵하게 해준다고 생각합니다. 단지 파라미터 개수가 여러개라 커맨드 오브젝트 형태로 전달받는거라 생각한다는 것 입니다.
 
