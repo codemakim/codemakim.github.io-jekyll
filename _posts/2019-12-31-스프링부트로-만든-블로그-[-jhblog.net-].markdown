@@ -1,0 +1,29 @@
+---
+layout: post
+title: "스프링부트로 만든 블로그 [jhblog.net]"
+date: 2018-12-31 09:00:13 +0900
+categories: [포트폴리오]
+---
+
+# 프로젝트 소개
+
+개인적으로 사용하기 위한 블로그입니다.
+
+> **프로젝트 구분** : 개인 프로젝트
+
+> **수행 기간** : 2019-12-11 ~ 2019-12-28
+
+## 바로가기
+* http://jhblog.net
+
+
+# 기술 스택
+* 타임리프
+* 제이쿼리
+* 스프링부트 2.2.4
+* JPA (MySQL)
+* AWS - EC2, RDS
+
+
+# 소스코드
+  https://github.com/codemakim/springblog
