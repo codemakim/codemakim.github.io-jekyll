@@ -21,10 +21,11 @@ React Hooks
 
 사용 예.
 
-```
-const [value, setValue] = useState(0);    // 기본값을 0으로 설정하겠다는 의미
+```javascript
+// 기본값을 0으로 설정하겠다는 의미
+const [value, setValue] = useState(0);
 
-const onChangeValue = e=> setValue(e.target.value);
+const onChangeValue = e => setValue(e.target.value);
 ```
 
 하나의 `useState` 함수는 하나의 상태값만 관리할 수 있기 때문에,
