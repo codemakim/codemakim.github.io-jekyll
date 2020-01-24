@@ -60,7 +60,7 @@ public String view(@RequestParam int id)
 ## @CookieValue
 
 HTTP 요청과 함께 전달된 쿠키 값을 받을 메서드 파라미터에 넣어줍니다. 쿠키의 이름을 지정해주면 됩니다.  
-`@RequestParam`과 마찬가지로 지정된 쿠키 값이 반드시 존재해야하나, `required`, `defaultValue` 엘리먼트를 사용할 수 있습니다.
+**@RequestParam** 과 마찬가지로 지정된 쿠키 값이 반드시 존재해야하나, **required**, **defaultValue** 엘리먼트를 사용할 수 있습니다.
 
 ```java
 public String check(@CookieValue("auth") String auth)
@@ -70,7 +70,7 @@ public String check(@CookieValue("auth") String auth)
 ## @RequestHeader
 
 요청 헤더정보를 메서드 파라미터에 넣어주는 애노테이션입니다.  
-`@RequestParam`과 마찬가지로 지정된 쿠키 값이 반드시 존재해야하나, `required`, `defaultValue` 엘리먼트를 사용할 수 있습니다.
+**@RequestParam** 과 마찬가지로 지정된 쿠키 값이 반드시 존재해야하나, **required**, **defaultValue** 엘리먼트를 사용할 수 있습니다.
 
 ```java
 public void header(
@@ -97,10 +97,10 @@ public void hello(ModelMap model) {
 
 ## @ModelAttribute
 
-요청 파라미터를 메서드 파라미터에서 1:1로 받으면 @RequestParam이고, 도메인 오브젝트나 DTO 프로퍼티에 요청 파라미터를 바인딩해서 한 번에 받으면 `@ModelAttribute` 라고 합니다.  
+요청 파라미터를 메서드 파라미터에서 1:1로 받으면 @RequestParam이고, 도메인 오브젝트나 DTO 프로퍼티에 요청 파라미터를 바인딩해서 한 번에 받으면 **@ModelAttribute** 라고 합니다.  
 하나의 오브젝트에 클라이언트 요청정보를 담아서 한 번에 전달되기 때문에 커맨드 패턴에서 말하는 커맨드 오브젝트라고 부르기도 합니다.
 
-URL의 쿼리스트링으로 들어오는 GET방식 HTTP 요청 정보를 `@ModelAttribute`가 붙은 파라미터 타입 오브젝트에 모두 담아서 전달합니다. 페이지 내의 폼 데이터를 받는 경우에도 `@ModelAttribute`를 사용합니다.
+URL의 쿼리스트링으로 들어오는 GET방식 HTTP 요청 정보를 **@ModelAttribute** 가 붙은 파라미터 타입 오브젝트에 모두 담아서 전달합니다. 페이지 내의 폼 데이터를 받는 경우에도 **@ModelAttribute** 를 사용합니다.
 
 ```java
 @RequestMapping("/user/search")
@@ -111,8 +111,8 @@ public String search(@ModelAttribute UserSearch userSearch, Model model) {
 }
 ```
 
-페이지 내의 폼 데이터를 받는 경우에도 `@ModelAttribute`를 사용할 수 있습니다.  
-이 때는 보통 폼의 내용을 담을 수 있는 도메인 오브젝트나 DTO를 `@ModelAttribute` 파라미터로 사용합니다.
+페이지 내의 폼 데이터를 받는 경우에도 **@ModelAttribute** 를 사용할 수 있습니다.  
+이 때는 보통 폼의 내용을 담을 수 있는 도메인 오브젝트나 DTO를 **@ModelAttribute** 파라미터로 사용합니다.
 
 ```java
 @RequestMapping("/user/add", method=RequestMethod.POST)
@@ -122,29 +122,29 @@ public String add(@ModelAttribute User user) {
 }
 ```
 
-`@RequestParam`, `@ModelAttribute` 두 가지 모두 생략 가능합니다. 스프링은 어떻게 annotation이 없는 파라미터를 보고 이 둘은 구분해내는가?
+**@RequestParam** , **@ModelAttribute** 두 가지 모두 생략 가능합니다. 스프링은 어떻게 annotation이 없는 파라미터를 보고 이 둘은 구분해내는가?
 
-\-> 스프링은 String, int와 같은 단순 타입은 `@RequestParam`으로 보고, 그 외의 복잡한 오브젝트는 모두 `@ModelAttribute`가 생략된 것으로 간주합니다.
+\-> 스프링은 String, int와 같은 단순 타입은 **@RequestParam** 으로 보고, 그 외의 복잡한 오브젝트는 모두 **@ModelAttribute** 가 생략된 것으로 간주합니다.
 
-!! 스프링은 간단한 숫자나 문자로 전달된 요청 파라미터를 복잡한 오브젝트로 변환할 수 있기 때문에 단순 타입이 아니라고 해서 꼭 `@ModelAttribute`가 생략됬다고 볼 수 없습니다.  
-그래서 `@RequestParam`, `@ModelAttribute`을 작성해주는 것을 권장합니다. 매우 단순한 커맨드 오브젝트나 파라미터라면 생략해도 나쁘진 않습니다.
+!! 스프링은 간단한 숫자나 문자로 전달된 요청 파라미터를 복잡한 오브젝트로 변환할 수 있기 때문에 단순 타입이 아니라고 해서 꼭 **@ModelAttribute** 가 생략됬다고 볼 수 없습니다.  
+그래서 **@RequestParam** , **@ModelAttribute** 을 작성해주는 것을 권장합니다. 매우 단순한 커맨드 오브젝트나 파라미터라면 생략해도 나쁘진 않습니다.
 
-`@odelAttribute` 컨트롤러가 리턴하는 모델에 파라미터로 전달한 오브젝트를 자동으로 추가해주는 기능을 가지고 있습니다. 이 때 모델 이름은 기본적으로 파라미터 타입의 이름입니다. (Class User => "user") 다른 이름을 쓰고 싶으면 지정해줄 수 있습니다.
+**@ModelAttribute** 컨트롤러가 리턴하는 모델에 파라미터로 전달한 오브젝트를 자동으로 추가해주는 기능을 가지고 있습니다. 이 때 모델 이름은 기본적으로 파라미터 타입의 이름입니다. (Class User => "user") 다른 이름을 쓰고 싶으면 지정해줄 수 있습니다.
 
 ## Errors, BindingResult
 
-`@ModelAttribute`는 여러 Request Parameter를 넣어서 넘겨주는게 전부가 아닙니다. 그 외에 검증 작업이 추가적으로 진행됩니다. 반면에 `@RequestParam`은 검증 절차를 진행하지 않습니다.
+**@ModelAttribute** 는 여러 Request Parameter를 넣어서 넘겨주는게 전부가 아닙니다. 그 외에 검증 작업이 추가적으로 진행됩니다. 반면에 **@RequestParam** 은 검증 절차를 진행하지 않습니다.
 
 ### 변환 불가능한 타입의 Request Paremeter가 들어왔을 때
 
-`@RequestParam` : 스프링의 기본 타입 변환 기능 이용해서 타입을 변환합니다. String이 가장 단순합니다. URL 쿼리 스트링, Form field는 멀티 타입이 아니면 문자열로 값이 전달돼 오기 때문입니다. int형 파라미터라면, String형 Request를 int형으로 타입 변환을 시도합니다. 성공하면 int형 parameter에 정상적으로 값을 전달합니다. 실패하면 `400 - Bad Request`를 응답합니다.
+**@RequestParam** : 스프링의 기본 타입 변환 기능 이용해서 타입을 변환합니다. String이 가장 단순합니다. URL 쿼리 스트링, Form field는 멀티 타입이 아니면 문자열로 값이 전달돼 오기 때문입니다. int형 파라미터라면, String형 Request를 int형으로 타입 변환을 시도합니다. 성공하면 int형 parameter에 정상적으로 값을 전달합니다. 실패하면 **400 - Bad Request** 를 응답합니다.
 
-`@ModelAttribute` : `@ModelAttribute` 오브젝트에 요청 프로퍼티 값을 넣다 타입 에러 발생하면?  
+**@ModelAttribute** : **@ModelAttribute** 오브젝트에 요청 프로퍼티 값을 넣다 타입 에러 발생하면?  
 \-> 타입 변환에 실패해도 작업은 계속 진행됩니다. 단, 타입 변환 중 발생한 예외가 BindException 타입의 오브젝트에 담겨서 컨트롤러로 전달될 뿐입니다.
 
 ### 그럼 왜 바로 에러로 처리 하지 않습니까?
 
-\-> 그 이유는`@ModelAttribute`는 Request parameter가 model object의 property type과 일치하는지를 포함한 다양한 방식의 검증 기능을 수행하기 때문입니다.`@ModelAttribute`입장에서 parameter 타입 불일치는 검증 작업의 한 결과일 뿐, 예상치 못한 예외상황이 아닙니다. 별 검증 과정 없이 값을 무조건 넣으려고 시도하는`@RequestParam`과`@ModelAttribute`는 이런 차이가 있습니다.
+\-> 그 이유는**@ModelAttribute** 는 Request parameter가 model object의 property type과 일치하는지를 포함한 다양한 방식의 검증 기능을 수행하기 때문입니다.**@ModelAttribute** 입장에서 parameter 타입 불일치는 검증 작업의 한 결과일 뿐, 예상치 못한 예외상황이 아닙니다. 별 검증 과정 없이 값을 무조건 넣으려고 시도하는**@RequestParam** 과**@ModelAttribute** 는 이런 차이가 있습니다.
 
 버튼, 링크에 미리 할당된 정보가 아니라 사용자가 직접 입력하는 값은 다양한 오류가 있을 수 있어서 무조건 검증이 필요합니다.
 
@@ -158,7 +158,7 @@ public String add(@ModelAttribute User user) {
 
 Errors나 BindingResult 파라미터를 함께 쓰지 않으면 Spring은 Request parameter 타입이나 값에 문제가 없도록 애플리케이션이 보장 빵빵하게 해준다고 생각합니다. 단지 파라미터 개수가 여러개라 커맨드 오브젝트 형태로 전달받는거라 생각한다는 것 입니다.
 
-그래서 이 때는 타입이 다르면 BIndingException 예외가 던집니다. `@RequestParam`은 400 응답 상태 코드로 변환해주기라도 하지, 얘는 바로 에러 메시지를 띄워버립니다. 따라서 사용자 정보를 입력 받는 컨트롤러는 이렇게 하는 것이 좋습니다.
+그래서 이 때는 타입이 다르면 BIndingException 예외가 던집니다. **@RequestParam** 은 400 응답 상태 코드로 변환해주기라도 하지, 얘는 바로 에러 메시지를 띄워버립니다. 따라서 사용자 정보를 입력 받는 컨트롤러는 이렇게 하는 것이 좋습니다.
 
 ```java
 @RequestMapping(value="add", method=RequestMethod.POST)
