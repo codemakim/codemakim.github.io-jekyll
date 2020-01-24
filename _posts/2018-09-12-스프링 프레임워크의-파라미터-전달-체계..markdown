@@ -14,7 +14,7 @@ categories: [스프링부트]
 URL에 { }로 들어가는 패스변수를 받음. 하나의 URI템플릿 안에 여러 개를 선언할 수도 있습니다.  
 일치하지 않는 타입의 값이 들어오면 'HTTP 400 - Bad Request'를 발생시킵니다.
 
-```
+```java
 @RequestMapping("/hello/{id}")
 public String view(@PathVariable("id") int id) {...}
 ```
@@ -23,19 +23,19 @@ public String view(@PathVariable("id") int id) {...}
 
 단일 HTTP 요청 파라미터를 메소드 파라미터에 넣어주는 애노테이션입니다.
 
-```
+```java
 public String view(@RequestParam("id") int id)
 {...}
 ```
 
 해당 파라미터가 반드시 있어야합니다. 만약 없다면 400-Bad Request를 받게 됩니다. 필수가 아니라 선택적으로 받을 수 있게 하려면 required 엘리먼트를 false로 설정해야합니다. 요청 파라미터가 없을 때 defaultValue를 지정할 수도 있습니다.
 
-```
+```java
 public String view(@RequestParam(value="id", required=false, defaultValue="50") int id)
 {...}
 ```
 
-```
+```java
 public String view(
     @RequestParam("id") int id,
     @RequestParam("name") String name,
@@ -45,14 +45,14 @@ public String view(
 
 요청 파라미터 이름을 지정하지 않고 Map<String, String> 타입으로 선언하면 컨트롤러에서 모든 요청 파라미터를 담은 맵으로 받을 수 있습니다. 파라미터 이름, key는 맵의 key, 값은 value에 담겨 전달됩니다.
 
-```
+```java
 public String add(@RequestParam Map<String, String> params)
 {...}
 ```
 
 자바 코드 컴파일 시 디버깅 정보를 모두 삭제하는 수준의 최적화를 하지 않았다면 이름도 생략 가능합니다. 단, 컨트롤러가 요구하는 파라미터의 이름과 요청 파라미터의 이름이 같아야 합니다.
 
-```
+```java
 public String view(@RequestParam int id)
 {...}
 ```
@@ -62,7 +62,7 @@ public String view(@RequestParam int id)
 HTTP 요청과 함께 전달된 쿠키 값을 받을 메서드 파라미터에 넣어줍니다. 쿠키의 이름을 지정해주면 됩니다.  
 `@RequestParam`과 마찬가지로 지정된 쿠키 값이 반드시 존재해야하나, `required`, `defaultValue` 엘리먼트를 사용할 수 있습니다.
 
-```
+```java
 public String check(@CookieValue("auth") String auth)
 {...}
 ```
@@ -72,7 +72,7 @@ public String check(@CookieValue("auth") String auth)
 요청 헤더정보를 메서드 파라미터에 넣어주는 애노테이션입니다.  
 `@RequestParam`과 마찬가지로 지정된 쿠키 값이 반드시 존재해야하나, `required`, `defaultValue` 엘리먼트를 사용할 수 있습니다.
 
-```
+```java
 public void header(
     @RequestHeader("Host") String host,
     @RequestHeader("Keep-Alive") long keepAlive)
@@ -83,7 +83,7 @@ public void header(
 
 Model, ModelMap은 addAttribute() 메서드를 제공함. 일반적인 Map의 put()처럼 이름을 지정해서 값을 넣어줄 수 있습니다.
 
-```
+```java
 @RequestMapping(...)
 public void hello(ModelMap model) {
     User user = new User(1, "Spring");
@@ -102,7 +102,7 @@ public void hello(ModelMap model) {
 
 URL의 쿼리스트링으로 들어오는 GET방식 HTTP 요청 정보를 `@ModelAttribute`가 붙은 파라미터 타입 오브젝트에 모두 담아서 전달합니다. 페이지 내의 폼 데이터를 받는 경우에도 `@ModelAttribute`를 사용합니다.
 
-```
+```java
 @RequestMapping("/user/search")
 public String search(@ModelAttribute UserSearch userSearch, Model model) {
     List<User> list = userService.search(userSearch);
@@ -114,7 +114,7 @@ public String search(@ModelAttribute UserSearch userSearch, Model model) {
 페이지 내의 폼 데이터를 받는 경우에도 `@ModelAttribute`를 사용할 수 있습니다.  
 이 때는 보통 폼의 내용을 담을 수 있는 도메인 오브젝트나 DTO를 `@ModelAttribute` 파라미터로 사용합니다.
 
-```
+```java
 @RequestMapping("/user/add", method=RequestMethod.POST)
 public String add(@ModelAttribute User user) {
     userService.add(user);
@@ -160,7 +160,7 @@ Errors나 BindingResult 파라미터를 함께 쓰지 않으면 Spring은 Reques
 
 그래서 이 때는 타입이 다르면 BIndingException 예외가 던집니다. `@RequestParam`은 400 응답 상태 코드로 변환해주기라도 하지, 얘는 바로 에러 메시지를 띄워버립니다. 따라서 사용자 정보를 입력 받는 컨트롤러는 이렇게 하는 것이 좋습니다.
 
-```
+```java
 @RequestMapping(value="add", method=RequestMethod.POST)
 public String add(@ModelAttribute User user, BindingResult bindingResult) {...}
 ```
@@ -177,7 +177,7 @@ HTTP 요청의 본문(body) 부분이 그대로 전달됩니다. 일반적인 GE
 
 JSR-303의 빈 검증기를 이용해서 객체를 검증하도록 지시하는 지시자임. 객체의 검증 방법을 지정하는데 쓰는 애노테이션입니다. 보통, @ModelAttribute와 함께 사용합니다.
 
-```
+```java
 @RequestMapping(value="add", method=RequestMethod.POST)
 public String add(@Valid @ModelAttribute User user, BindingResult bindingResult)
 {...}
@@ -185,18 +185,18 @@ public String add(@Valid @ModelAttribute User user, BindingResult bindingResult)
 
 하이버네이트에서 제공하는 Validator를 쓰면 이런 조건을 걸 수 있습니다.
 
-```
-@AssertFalse : false 값만 통과 가능
-@AssertTrue : true 값만 통과 가능
-@DecimalMax(value=) : 지정된 값 이하의 실수만 통과 가능
-@DecimalMin(value=) : 지정된 값 이상의 실수만 통과 가능
-@Digits(integer=,fraction=) : 대상 수가 지정된 정수와 소수 자리수보다 적을 경우 통과 가능
-@Future : 대상 날짜가 현재보다 미래일 경우만 통과 가능
-@Past : 대상 날짜가 현재보다 과거일 경우만 통과 가능
-@Max(value) : 지정된 값보다 아래일 경우만 통과 가능
-@Min(value) : 지정된 값보다 이상일 경우만 통과 가능
-@NotNull : null 값이 아닐 경우만 통과 가능
-@Null : null일 겨우만 통과 가능
-@Pattern(regex=, flag=) : 해당 정규식을 만족할 경우만 통과 가능
-@Size(min=, max=) : 문자열 또는 배열이 지정된 값 사이일 경우 통과 가능
+```java
+@AssertFalse  // false 값만 통과 가능
+@AssertTrue  // true 값만 통과 가능
+@DecimalMax(value=)  // 지정된 값 이하의 실수만 통과 가능
+@DecimalMin(value=)  // 지정된 값 이상의 실수만 통과 가능
+@Digits(integer=,fraction=)  // 대상 수가 지정된 정수와 소수 자리수보다 적을 경우 통과 가능
+@Future  // 대상 날짜가 현재보다 미래일 경우만 통과 가능
+@Past  // 대상 날짜가 현재보다 과거일 경우만 통과 가능
+@Max(value)  // 지정된 값보다 아래일 경우만 통과 가능
+@Min(value)  // 지정된 값보다 이상일 경우만 통과 가능
+@NotNull  // null 값이 아닐 경우만 통과 가능
+@Null  // null일 겨우만 통과 가능
+@Pattern(regex=, flag=)  // 해당 정규식을 만족할 경우만 통과 가능
+@Size(min=, max=)  // 문자열 또는 배열이 지정된 값 사이일 경우 통과 가능
 ```

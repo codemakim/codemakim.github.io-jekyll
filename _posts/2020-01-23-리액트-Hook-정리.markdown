@@ -33,7 +33,7 @@ const onChangeValue = e => setValue(e.target.value);
 
 사용 예.
 
-```
+```javascript
 const [value, setValue] = useState(0);
 const [name, setName -] = useState('');
 
@@ -50,26 +50,26 @@ const onChangeName = e => setValue(e.target.value);
 
 사용 예.
 
-```
+```javascript
 useEffect(() => {
-  console.log('렌더링 완료!');
+  console.log("렌더링 완료!");
 });
 ```
 
 마운트될 때만 실행하고 싶을 때
 
-```
+```javascript
 useEffect(() => {
-  console.log('마운트될 때만 실행!');
-}, []);    // 빈 배열 []을 두번째 파라미터로 전달
+  console.log("마운트될 때만 실행!");
+}, []); // 빈 배열 []을 두번째 파라미터로 전달
 ```
 
 특정 값이 업데이트될 때만 실행하고 싶을 때
 
-```
+```javascript
 useEffect(() => {
-  console.log('name 값이 업데이트될 때만 실행!');
-}, [name]);    // useState로 관리되는 값이나 props로 전달받은 값을 넣어도 됨.
+  console.log("name 값이 업데이트될 때만 실행!");
+}, [name]); // useState로 관리되는 값이나 props로 전달받은 값을 넣어도 됨.
 ```
 
 기본적으로 렌더링된 직후마다 실행되지만, 두번째 파라미터 배열에 넣는 값에 따라
@@ -80,24 +80,24 @@ useEffect(() => {
 
 언마운트, 업데이트 직전마다 실행
 
-```
+```javascript
 useEffect(() => {
-  console.log('effect');
+  console.log("effect");
   return () => {
-    console.log('cleanup');
+    console.log("cleanup");
   };
 });
 ```
 
 언마운트될 때만 실행
 
-```
+```javascript
 useEffect(() => {
-  console.log('effect');
+  console.log("effect");
   return () => {
-    console.log('cleanup');
+    console.log("cleanup");
   };
-}, []);    // 빈 배열 []을 두번째 파라미터로 전달
+}, []); // 빈 배열 []을 두번째 파라미터로 전달
 ```
 
 ---
@@ -112,7 +112,7 @@ useEffect(() => {
 
 사용 예. (카운터 구현하기)
 
-```
+```javascript
 function reducer(state, action) {
   // action.type에 따라 다른 작업 수행
   switch(action.type) {
@@ -149,21 +149,21 @@ export default Counter;
 
 ### 인풋 상태 관리하기
 
-```
+```javascript
 function reducer(state, action) {
   return {
     ...state,
-   [action.name]: action.value
+    [action.name]: action.value
   };
 }
 
 const Info = () => {
   const [state, dispatch] = userReducer(reducer, {
-    name: '',
-    nickname: ''
+    name: "",
+    nickname: ""
   });
 
-  const {name, nickname } = state;
+  const { name, nickname } = state;
 
   const onChange = e => {
     dispatch(e.target);
@@ -176,10 +176,12 @@ const Info = () => {
         <input name="nickname" value={nickname} onChange={onChange} />
       </div>
       <div>
-        <b>이름: </b>{name}
+        <b>이름: </b>
+        {name}
       </div>
       <div>
-        <b>별명: </b>{nickname}
+        <b>별명: </b>
+        {nickname}
       </div>
     </div>
   );
@@ -198,44 +200,45 @@ export default Counter;
 함수형 컴포넌트 내부에서 발생하는 연산을 최적화할 수 있는 Hook.
 렌더링하는 과정에서 `특정 값이 바뀌었을 때만 연산을 실행`하고, 값이 바뀌지 않았다면 이전 연산 결과를 재사용하는 방식.
 
-```
+```javascript
 const getAverage = numbers => {
-  console.log('평균값 계산중');
-  if(numbers.length === 0)
-      return 0;
+  console.log("평균값 계산중");
+  if (numbers.length === 0) return 0;
   const sum = numbers.reduce((a, b) => a + b);
   return sum / numbers.length;
 };
 
 const Average = () => {
-    const [list, setList] = useState([]);
-    const [number, setNumber] = useState('');
+  const [list, setList] = useState([]);
+  const [number, setNumber] = useState("");
 
-    const onChange = e => {
-        setNumber(e.target.value);
-    }
+  const onChange = e => {
+    setNumber(e.target.value);
+  };
 
-    const onInsert = () => {
-        const nextList = list.concat(parseInt(number));
-        setList(nextList);
-        setNumber('');
-    };
+  const onInsert = () => {
+    const nextList = list.concat(parseInt(number));
+    setList(nextList);
+    setNumber("");
+  };
 
-    const avg = useMemo(() => getAverage(list), [list]);
+  const avg = useMemo(() => getAverage(list), [list]);
 
-    return (
-        <div>
-            <input value={number} onChange={onChange} />
-            <button onClick={onInsert}>등록</button>
-            <ul>
-                {list.map((value, index) => ( <li key={index}> {value} </li> ))}
-            </ul>
-            <div>
-                <b>평균값: </b> {avg}
-            </div>
-        </div>
-    );
-}
+  return (
+    <div>
+      <input value={number} onChange={onChange} />
+      <button onClick={onInsert}>등록</button>
+      <ul>
+        {list.map((value, index) => (
+          <li key={index}> {value} </li>
+        ))}
+      </ul>
+      <div>
+        <b>평균값: </b> {avg}
+      </div>
+    </div>
+  );
+};
 ```
 
 ---
@@ -247,16 +250,16 @@ const Average = () => {
 
 위 소스코드에서 아래에 작성한 부분으로 수정하거나 추가하자.
 
-```
+```javascript
 const onChange = useCallback(e => {
-    setNumber(e.target.value);
-}, []);    // 컴포넌트가 처음 랜더링될 때만 함수 생성
+  setNumber(e.target.value);
+}, []); // 컴포넌트가 처음 랜더링될 때만 함수 생성
 
 const onInsert = useCallback(() => {
-    const nextList = list.concat(parseInt(number));
-    setList(nextList);
-    setNumber('');
-}, [number, list]);    // number 혹은 list가 바뀌었을 때만 함수 생성
+  const nextList = list.concat(parseInt(number));
+  setList(nextList);
+  setNumber("");
+}, [number, list]); // number 혹은 list가 바뀌었을 때만 함수 생성
 ```
 
 첫번째 파라미터에는 생성하려는 `함수`를 넣고, 두 번째 파라미터에는 `배열`을 넣으면 됨.
@@ -266,16 +269,16 @@ const onInsert = useCallback(() => {
 비어있는 배열 []을 넣게되면 컴포넌트가 랜더링될 때 한 번만 함수가 생성되며,
 `[number, list]` 이렇게 넣으면 `number`나 `list` 값에 변화가 생길 때마다 생성됨.
 
-```
+```javascript
 useCallback(() => {
-    console.log('hello world');
+  console.log("hello world");
 }, []);
 
 useMemo(() => {
-    const fn = () => {
-        console.log('hello world');
-    };
-    return fn;
+  const fn = () => {
+    console.log("hello world");
+  };
+  return fn;
 }, []);
 ```
 
@@ -288,7 +291,7 @@ useMemo(() => {
 
 함수형 컴포넌트에서 쉽게 `ref`를 사용할 수 있게 하는 Hook.
 
-```
+```javascript
 // 선언
 const inputEl = useRef(null);
 
@@ -309,23 +312,19 @@ const onInsert = useCallback(() => {
 
 사용 예.
 
-```
+```javascript
 const RefSample = () => {
-    const id = useRef(1);
+  const id = useRef(1);
 
-    const setId = (n) => {
-        id.current = n;
-    };
+  const setId = n => {
+    id.current = n;
+  };
 
-    const printId = () => {
-        console.log(id.current);
-    };
+  const printId = () => {
+    console.log(id.current);
+  };
 
-    return (
-        <div>
-            refsample
-        </div>
-    );
+  return <div>refsample</div>;
 };
 
 export default RefSample;
