@@ -6,6 +6,7 @@
   border-bottom: 1px solid $brand-color-light;
   min-height: $spacing-unit * 1.865;
   line-height: $base-line-height * $base-font-size * 2.25;
+  font-family: "Noto Serif KR", serif; //구글 웹 폰트 적용
 
   // Positioning context for the mobile navigation icon
   position: relative;
@@ -122,6 +123,7 @@
 .site-footer {
   border-top: 1px solid $brand-color-light;
   padding: $spacing-unit 0;
+  font-family: "Noto Serif KR", serif; //구글 웹 폰트 적용
 }
 
 .footer-heading {
