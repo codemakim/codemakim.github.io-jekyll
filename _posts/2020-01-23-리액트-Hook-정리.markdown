@@ -14,6 +14,8 @@ React Hooks
 
 ---
 
+<br>
+
 ## useState
 
 가장 기본적인 Hook. 컴포넌트에서도 가변적인 상태를 지닐 수 있게 해줌.
@@ -42,6 +44,8 @@ const onChangeName = e => setValue(e.target.value);
 ```
 
 ---
+
+<br>
 
 ## useEffect
 
@@ -101,6 +105,8 @@ useEffect(() => {
 ```
 
 ---
+
+<br>
 
 ## useReducer
 
@@ -195,6 +201,8 @@ export default Counter;
 
 ---
 
+<br>
+
 ## useMomo
 
 함수형 컴포넌트 내부에서 발생하는 연산을 최적화할 수 있는 Hook.
@@ -243,6 +251,8 @@ const Average = () => {
 
 ---
 
+<br>
+
 ## useCallback
 
 **useMemo** 와 상당히 비슷한 함수로, 주로 렌더링 성능을 최적화해야하는 상황에서 사용.
@@ -286,6 +296,8 @@ useMemo(() => {
 숫자, 문자열, 객체처럼 일반 값을 재사용하려면 **useMemo** 를 사용하고, 함수를 재사용하려면 **useCallback** 을 사용하자.
 
 ---
+
+<br>
 
 ## useRef
 
