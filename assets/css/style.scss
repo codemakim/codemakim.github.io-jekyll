@@ -3,3 +3,5 @@
 ---
 
 @import "minima-{{ site.minima.skin | default: 'classic' }}";
+
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap"); //구글 웹 폰트 적용
