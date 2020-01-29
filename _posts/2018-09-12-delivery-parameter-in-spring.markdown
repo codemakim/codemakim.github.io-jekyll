@@ -43,7 +43,7 @@ public String view(
 {...}
 ```
 
-요청 파라미터 이름을 지정하지 않고 Map<String, String> 타입으로 선언하면 컨트롤러에서 모든 요청 파라미터를 담은 맵으로 받을 수 있습니다. 파라미터 이름, key는 맵의 key, 값은 value에 담겨 전달됩니다.
+요청 파라미터 이름을 지정하지 않고 **Map<String, String>** 타입으로 선언하면 컨트롤러에서 모든 요청 파라미터를 담은 맵으로 받을 수 있습니다. 파라미터 이름, key는 맵의 key, 값은 value에 담겨 전달됩니다.
 
 ```java
 public String add(@RequestParam Map<String, String> params)
@@ -144,7 +144,7 @@ public String add(@ModelAttribute User user) {
 
 ### 그럼 왜 바로 에러로 처리 하지 않습니까?
 
-\-> 그 이유는**@ModelAttribute** 는 Request parameter가 model object의 property type과 일치하는지를 포함한 다양한 방식의 검증 기능을 수행하기 때문입니다.**@ModelAttribute** 입장에서 parameter 타입 불일치는 검증 작업의 한 결과일 뿐, 예상치 못한 예외상황이 아닙니다. 별 검증 과정 없이 값을 무조건 넣으려고 시도하는 **@RequestParam** 과 **@ModelAttribute** 는 이런 차이가 있습니다.
+\-> 그 이유는 **@ModelAttribute** 는 Request parameter가 model object의 property type과 일치하는지를 포함한 다양한 방식의 검증 기능을 수행하기 때문입니다.**@ModelAttribute** 입장에서 parameter 타입 불일치는 검증 작업의 한 결과일 뿐, 예상치 못한 예외상황이 아닙니다. 별 검증 과정 없이 값을 무조건 넣으려고 시도하는 **@RequestParam** 과 **@ModelAttribute** 는 이런 차이가 있습니다.
 
 버튼, 링크에 미리 할당된 정보가 아니라 사용자가 직접 입력하는 값은 다양한 오류가 있을 수 있어서 무조건 검증이 필요합니다.
 
@@ -154,7 +154,7 @@ public String add(@ModelAttribute User user) {
 따라서, 사용자 입력 값에 오류가 있으면 이 처리를 컨트롤러에 맡겨야 합니다.  
 컨트롤러는 적절한 에러 페이지를 반환하거나, 친절하게 에러메시지를 보여주면서 사용자가 다시 폼을 수정할 기회를 줘야합니다.
 
-### 그래서 @ModelAttribute를 쓸 땐 Errors 또는 BindingResult 타입 파라미터를 같이 써야합니다.
+### 그래서 **@ModelAttribute** 를 쓸 땐 Errors 또는 BindingResult 타입 파라미터를 같이 써야합니다.
 
 **Errors** 나 **BindingResult** 파라미터를 함께 쓰지 않으면 Spring은 Request parameter 타입이나 값에 문제가 없도록 애플리케이션이 보장 빵빵하게 해준다고 생각합니다. 단지 파라미터 개수가 여러개라 커맨드 오브젝트 형태로 전달받는거라 생각한다는 것 입니다.
 
