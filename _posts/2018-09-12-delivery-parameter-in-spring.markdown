@@ -2,7 +2,7 @@
 layout: post
 title: "스프링 프레임워크의 컨트롤러 파라미터"
 date: 2018-09-12 17:51:01 +0900
-categories: [스프링부트]
+categories: [SpringBoot]]
 ---
 
 출처 - 토비의 스프링 3.1

@@ -2,7 +2,7 @@
 layout: post
 title: "스프링부트로 만든 블로그 - JHBLOG.NET"
 date: 2019-12-31 09:00:13 +0900
-categories: [포트폴리오]
+categories: [Portfolio]
 ---
 
 <br>

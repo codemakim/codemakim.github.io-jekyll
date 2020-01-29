@@ -2,7 +2,7 @@
 layout: post
 title: "리액트 Hook 정리"
 date: 2020-01-23 17:58:13 +0900
-categories: [리액트]
+categories: [React]
 ---
 
 React Hooks
