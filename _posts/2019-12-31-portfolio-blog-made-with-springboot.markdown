@@ -1,8 +1,12 @@
 ---
 layout: post
-title: "스프링부트로 만든 블로그 - JHBLOG.NET"
+title: "스프링부트로 만든 블로그"
 date: 2019-12-31 09:00:13 +0900
+lastmod : 2019-12-31 08:00:13 +0900
 categories: [Portfolio]
+sitemap :
+  changefreq : daily
+  priority : 1.0
 ---
 
 <br>

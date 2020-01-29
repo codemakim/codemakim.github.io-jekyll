@@ -2,7 +2,11 @@
 layout: post
 title: "안드로이드 앱 - 매일두잇!"
 date: 2019-12-31 08:00:13 +0900
+lastmod : 2019-12-31 08:00:13 +0900
 categories: [Portfolio]
+sitemap :
+  changefreq : daily
+  priority : 1.0
 ---
 
 <br>

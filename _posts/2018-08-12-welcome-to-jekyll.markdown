@@ -2,7 +2,11 @@
 layout: post
 title:  "Welcome to Jekyll!"
 date:   2018-08-12 17:51:01 +0900
+lastmod : 2018-08-12 17:51:01 +0900
 categories: jekyll update
+sitemap :
+  changefreq : weekly
+  priority : 1.0
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 

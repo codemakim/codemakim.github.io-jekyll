@@ -2,7 +2,11 @@
 layout: post
 title: "리액트 Hook 정리"
 date: 2020-01-23 17:58:13 +0900
+lastmod : 2020-01-23 17:58:13 +0900
 categories: [React]
+sitemap :
+  changefreq : daily
+  priority : 1.0
 ---
 
 React Hooks
