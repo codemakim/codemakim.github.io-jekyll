@@ -6,7 +6,24 @@
 
 @import url("https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap"); //구글 웹 폰트 적용
 
-a.post-link:hover {
+a.page-link {
     color: black;
+}
+
+a.page-link:visited {
+    color: black;
+}
+
+a.page-link:hover {
     text-decoration: none;
+    transition-property: color;
+    transition-duration: 0.5s;
+    color: slateblue;
+}
+
+a.post-link:hover {
+    text-decoration: none;
+    transition-property: color;
+    transition-duration: 0.5s;
+    color: slateblue;
 }
