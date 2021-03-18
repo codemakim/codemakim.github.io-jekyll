@@ -9,7 +9,11 @@ sitemap:
   priority: 1.0
 ---
 
+---
+
 ## Array.prototype.sort()
+
+---
 
 ### sort()는 호출한 배열을 변형함.
 
@@ -60,9 +64,13 @@ arr.sort(function (a, b) {
 });
 ```
 
+## <br/>
+
 ---
 
 ## Array.prototype.every()
+
+---
 
 every() 메서드는 배열 안의 모든 요소가 주어진 판별 함수를 통과하는지 테스트한다.
 
@@ -93,9 +101,13 @@ const arr = [12, 4, 5, 130, 44];
 arr.every((el) => el >= 10); // return false
 ```
 
+## <br/>
+
 ---
 
 ## Array.prototype.some()
+
+---
 
 some() 메서드는 배열 안의 어떤 요소라도 주어진 판별 함수를 통과하는지 테스트한다.
 
@@ -134,9 +146,13 @@ arr.some((el) => el === 34); // return false
 arr.some((el) => el === 130); // return true
 ```
 
+## <br/>
+
 ---
 
 ## Array.prototype.find()
+
+---
 
 find() 메서드는 주어진 판별 함수를 만족하는 **첫 번째 요소의 값**을 반환. 그런 요소가 없다면 **undefined**를 반환.
 
@@ -173,17 +189,25 @@ var arr = [
 arr.find((el) => el.name === "banana");
 ```
 
+## <br/>
+
 ---
 
 ## Array.prototype.findIndex()
+
+---
 
 find와 동일한 동작을 하나, 반환 값은 해당 요소의 인덱스 값을 반환함.
 
 ### findIndex는 호출한 배열을 변경하지 않음.
 
+## <br/>
+
 ---
 
 ## Array.prototype.includes()
+
+---
 
 includes() 메서드는 배열이 특정 요소를 포함하고 있는지 판별
 
@@ -197,9 +221,13 @@ includes() 메서드는 배열이 특정 요소를 포함하고 있는지 판별
 
 ### 인터넷 익스플로러에서 지원되지 않음.
 
+## <br/>
+
 ---
 
 ## Array.prototype.filter()
+
+---
 
 filter() 메서드는 주어진 함수의 테스트를 통과하는 모든 요소를 모아 **새로운 배열로 반환**한다.
 
@@ -245,9 +273,13 @@ console.log(fruits.filter((el) => el.toLowerCase().indexOf("ap") > -1));
 /// 'ap'로 검색하여, 검색 결과는 ['apple', 'grapes']
 ```
 
+## <br/>
+
 ---
 
 ## Array.prototype.forEach()
+
+---
 
 주어진 함수를 배열 요소 각각에 대해 실행한다.
 
@@ -286,9 +318,13 @@ items.forEach((item) => {
 });
 ```
 
+## <br/>
+
 ---
 
 ## Array.prototype.flat()
+
+---
 
 모든 하위 배열 요소를 지정한 깊이까지 재귀적으로 이어붙인 새로운 배열을 생성합니다.
 
@@ -316,13 +352,21 @@ arr4.flat(Infinity);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
+## <br/>
+
 ---
 
 ## Array.prototype.flatMap()
 
 ---
 
+## <br/>
+
+---
+
 ## Array.prototype.map()
+
+---
 
 배열 내 모든 요소 각각에 대하여 주어진 함수를 호출한 결과를 모아서 새로운 배열을 반환.
 
@@ -385,9 +429,15 @@ const values = [].map.call(elems, function (obj) {
 ["1", "2", "3"].map((str) => parseInt(str));
 ```
 
+## <br/>
+
 ---
 
 ## Array.prototype.from()
+
+---
+
+## <br/>
 
 ---
 
@@ -395,4 +445,10 @@ const values = [].map.call(elems, function (obj) {
 
 ---
 
+## <br/>
+
+---
+
 ## Array.prototype.concat()
+
+---
