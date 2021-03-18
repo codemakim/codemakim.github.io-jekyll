@@ -62,7 +62,7 @@ arr.sort(function (a, b) {
 });
 ```
 
-## <br/>
+<br/>
 
 ## Array.prototype.every()
 
@@ -97,7 +97,7 @@ const arr = [12, 4, 5, 130, 44];
 arr.every((el) => el >= 10); // return false
 ```
 
-## <br/>
+<br/>
 
 ## Array.prototype.some()
 
@@ -140,7 +140,7 @@ arr.some((el) => el === 34); // return false
 arr.some((el) => el === 130); // return true
 ```
 
-## <br/>
+<br/>
 
 ## Array.prototype.find()
 
@@ -181,7 +181,7 @@ var arr = [
 arr.find((el) => el.name === "banana");
 ```
 
-## <br/>
+<br/>
 
 ## Array.prototype.findIndex()
 
@@ -191,7 +191,7 @@ find와 동일한 동작을 하나, 반환 값은 해당 요소의 인덱스 값
 
 ### findIndex는 호출한 배열을 변경하지 않음.
 
-## <br/>
+<br/>
 
 ## Array.prototype.includes()
 
@@ -209,7 +209,7 @@ includes() 메서드는 배열이 특정 요소를 포함하고 있는지 판별
 
 ### 인터넷 익스플로러에서 지원되지 않음.
 
-## <br/>
+<br/>
 
 ## Array.prototype.filter()
 
@@ -259,7 +259,7 @@ console.log(fruits.filter((el) => el.toLowerCase().indexOf("ap") > -1));
 /// 'ap'로 검색하여, 검색 결과는 ['apple', 'grapes']
 ```
 
-## <br/>
+<br/>
 
 ## Array.prototype.forEach()
 
@@ -302,7 +302,7 @@ items.forEach((item) => {
 });
 ```
 
-## <br/>
+<br/>
 
 ## Array.prototype.flat()
 
@@ -334,13 +334,7 @@ arr4.flat(Infinity);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
-## <br/>
-
-## Array.prototype.flatMap()
-
----
-
-## <br/>
+<br/>
 
 ## Array.prototype.map()
 
@@ -407,20 +401,118 @@ const values = [].map.call(elems, function (obj) {
 ["1", "2", "3"].map((str) => parseInt(str));
 ```
 
-## <br/>
-
-## Array.prototype.from()
-
----
-
-## <br/>
+<br/>
 
 ## Array.prototype.reduce()
 
 ---
 
-## <br/>
+배열의 각 욧에 주어진 리듀서 함수를 실행하고, 하나의 결과값을 반환
 
-## Array.prototype.concat()
+### 매개변수
 
----
+1. callback: 배열의 각 요소에 대해 실행할 함수
+   1. accumulator: 누산기
+   1. currentValue: 현재값
+   1. currentIndex: 현재 인덱스
+   1. array: 원본 배열
+1. initialValue: callback 최초 호출에서 첫번째 인수(acc)에 제공하는 값. 제공하지 않으면 배열의 첫번째 요소를 사용함. 빈 베열에서 초기값 없이 reduce()를 호출하면 오류가 발생.
+
+리듀서 함수의 반환 값은 누산기에 할당되고, 누산기는 순회 중 유지되므로 결국 최종 결과는 하나값이 됨.
+
+### 배열의 모든 값 합산
+
+```javascript
+const sum = [1, 2, 3, 4, 5].reduce((acc, cur) => acc + cur, 0);
+```
+
+### 객체 배열에서의 값 합산
+
+객체로 이루어진 배열에 들어있는 값을 합산하기 위해서는 초기값을 주어 모든 항목이 **반드시** 작성한 함수를 거치도록 해야함.
+
+```javascript
+const sum = [{ x: 1 }, { x: 2 }, { x: 3 }].reduce((acc, cur) => acc + cur.x, 0);
+```
+
+### 속성으로 객체 분류하기
+
+```javascript
+const people = [
+  { name: "Ace", age: 10 },
+  { name: "Roopy", age: 20 },
+  { name: "Zoro", age: 20 },
+];
+
+function groupBy(objArr, props) {
+  return objArr.reduce((acc, cur) => {
+    let key = cur[props];
+    if (!acc[key]) {
+      acc[key] = [];
+    }
+    acc[key].push(cur);
+    return acc;
+  }, {});
+}
+const groupedPeople = groupBy(people, "age");
+```
+
+### 객체로 이루어진 배열에 담긴 배열 연결하기
+
+```javascript
+const friends = [
+  {
+    name: "Anne",
+    books: ["Bible", "Harry Potter"],
+    age: 21,
+  },
+  {
+    name: "Bob",
+    books: ["War and peace", "Romeo an Juliet"],
+    age: 26,
+  },
+  {
+    name: "Alice",
+    books: ["The Load of the Rings", "The Shining"],
+    age: 18,
+  },
+];
+
+const allbooks = friends.reduce(
+  (acc, cur) => {
+    return [...acc, ...cur.books];
+  },
+  ["Alphabet"]
+);
+```
+
+### 배열의 중복 항목 제거
+
+```javascript
+let arr = [1, 2, 1, 1, 3, 4, 4, 3, 2, 1];
+let result = arr.sort().reduce((acc, cur) => {
+  const length = acc.length;
+  if (length === 0 || acc[length - 1] !== cur) {
+    acc.push(cur);
+  }
+  return acc;
+}, []);
+```
+
+### 함수 구성을 위한 파이프 함수
+
+```javascript
+const double = (x) => x + x;
+const triple = (x) => 3 * x;
+const quadruple = (x) => 4 * x;
+
+const pipe = (...functions) => (input) =>
+  functions.reduce((acc, fn) => fn(acc), input);
+
+const mul6 = pipe(double, triple);
+const mul9 = pipe(triple, triple);
+const mul16 = pipe(quadruple, quadruple);
+
+const sixsix = mul6(6);
+const ninesix = mul9(6);
+const sixtsix = mul16(6);
+```
