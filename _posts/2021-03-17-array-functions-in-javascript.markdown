@@ -9,8 +9,6 @@ sitemap:
   priority: 1.0
 ---
 
----
-
 ## Array.prototype.sort()
 
 ---
@@ -66,8 +64,6 @@ arr.sort(function (a, b) {
 
 ## <br/>
 
----
-
 ## Array.prototype.every()
 
 ---
@@ -102,8 +98,6 @@ arr.every((el) => el >= 10); // return false
 ```
 
 ## <br/>
-
----
 
 ## Array.prototype.some()
 
@@ -148,8 +142,6 @@ arr.some((el) => el === 130); // return true
 
 ## <br/>
 
----
-
 ## Array.prototype.find()
 
 ---
@@ -191,8 +183,6 @@ arr.find((el) => el.name === "banana");
 
 ## <br/>
 
----
-
 ## Array.prototype.findIndex()
 
 ---
@@ -202,8 +192,6 @@ find와 동일한 동작을 하나, 반환 값은 해당 요소의 인덱스 값
 ### findIndex는 호출한 배열을 변경하지 않음.
 
 ## <br/>
-
----
 
 ## Array.prototype.includes()
 
@@ -222,8 +210,6 @@ includes() 메서드는 배열이 특정 요소를 포함하고 있는지 판별
 ### 인터넷 익스플로러에서 지원되지 않음.
 
 ## <br/>
-
----
 
 ## Array.prototype.filter()
 
@@ -275,8 +261,6 @@ console.log(fruits.filter((el) => el.toLowerCase().indexOf("ap") > -1));
 
 ## <br/>
 
----
-
 ## Array.prototype.forEach()
 
 ---
@@ -320,8 +304,6 @@ items.forEach((item) => {
 
 ## <br/>
 
----
-
 ## Array.prototype.flat()
 
 ---
@@ -354,15 +336,11 @@ arr4.flat(Infinity);
 
 ## <br/>
 
----
-
 ## Array.prototype.flatMap()
 
 ---
 
 ## <br/>
-
----
 
 ## Array.prototype.map()
 
@@ -431,23 +409,17 @@ const values = [].map.call(elems, function (obj) {
 
 ## <br/>
 
----
-
 ## Array.prototype.from()
 
 ---
 
 ## <br/>
 
----
-
 ## Array.prototype.reduce()
 
 ---
 
 ## <br/>
-
----
 
 ## Array.prototype.concat()
 
