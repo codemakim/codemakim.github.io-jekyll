@@ -577,3 +577,25 @@ const sixsix = mul6(6);
 const ninesix = mul9(6);
 const sixtsix = mul16(6);
 ```
+
+<br/>
+
+## Array.prototype.splice()
+
+---
+
+splice() 메서드는 배열의 기존 요소를 삭제 또는 교체하거나 새 요소를 추가하여 배열의 내용을 변경
+
+> ### splice()는 호출한 배열 원본 데이터를 변형함.
+
+<br/>
+
+## Array.prototype.slice()
+
+---
+
+slice() 메서드는 어떤 배열의 begin부터 end까지(end 미포함)에 대한 얕은 복사본을 새로운 배열 객체로 반환한다.
+
+
+> ### slice()는 원본 배열을 바뀌지 않는다.
+<br/>
