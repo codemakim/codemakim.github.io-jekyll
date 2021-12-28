@@ -26,7 +26,7 @@ sitemap :
 
 ### 바로가기
 
-- [블로그 주소](http://jhblog.net)
+- [블로그 주소](http://jhblog.net) - AWS 프리티어 기간 종료로 인해 현재 접속 불가.
 
 ---
 
